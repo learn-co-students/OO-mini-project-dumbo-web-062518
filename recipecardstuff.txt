@@ -1,5 +1,3 @@
-require_relative '../config/environment.rb'
-
 toni = User.new("Toni")
 alex = User.new("Alex")
 jason = User.new("Jason")
@@ -12,6 +10,8 @@ spaghetti = Recipe.new("Spaghetti")
 beefstew = Recipe.new("Beef Stew")
 grilledsalmon = Recipe.new("Grilled Salmon")
 
+
+
 chicken = Ingredient.new("Chicken")
 beef = Ingredient.new("Beef")
 pasta = Ingredient.new("Pasta")
@@ -20,10 +20,12 @@ tomato = Ingredient.new("Tomato")
 cheese = Ingredient.new("Cheese")
 breadcrumbs = Ingredient.new("Bread Crumbs")
 
+
+
 chickenparm.add_ingredients([chicken, cheese, tomato])
 lasagna.add_ingredients([beef, cheese, tomato, pasta])
 bakedchicken.add_ingredients([chicken, breadcrumbs])
-spaghetti.add_ingredients([pasta, tomato])
+spaghetti([pasta, tomato])
 beefstew.add_ingredients([beef, tomato])
 grilledsalmon.add_ingredients([fish, breadcrumbs])
 
@@ -47,7 +49,3 @@ toni.declare_allergen(cheese)
 alex.declare_allergen(beef)
 alex.declare_allergen(cheese)
 jane.declare_allergen(tomato)
-toni.declare_allergen(beef)
-
-
-binding.pry
