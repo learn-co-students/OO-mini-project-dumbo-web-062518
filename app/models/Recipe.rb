@@ -16,7 +16,8 @@ class Recipe
   end
 
   def users
-
+    cards = RecipeCard.all.select { |recipe_card| recipe_card.recipe == self }
+    cards.map { |card| card.user }
   end
 
   def ingredients
