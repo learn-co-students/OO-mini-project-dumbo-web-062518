@@ -49,7 +49,7 @@ class Recipe
         end
       end
     end
-    list
+    list.uniq
   end
 
   def add_ingredients(ingredient_list)

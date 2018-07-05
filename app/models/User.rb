@@ -48,14 +48,16 @@ class User
   end
 
   def safe_recipes
-    list = []
-    allergens.each do |allergen|
-      RecipeIngredient.all.each do |r_ingr|
-          unless allergen.ingredient == r_ingr.ingredient
-            list << r_ingr.recipe
-          end
+    list = Recipe.all
+    allergens.each do |aller|
+      list.each do |reci|
+
+        if reci.allergens.include?(aller.ingredient)
+          
+          list.delete(reci)
+        end
       end
     end
-    list.uniq
+    list
   end
 end
