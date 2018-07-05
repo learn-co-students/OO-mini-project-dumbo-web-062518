@@ -16,10 +16,11 @@ sandwich_array = ["lettuce", "avacado", "cheese", "chicken"]
 sandwich.add_ingredients(sandwich_array)
 
 andre.add_recipe_card(pizza, "07-05-2018", 5)
-dan.add_recipe_card(pizza, "07-08-2018", 5)
+dan.add_recipe_card(muffin, "07-08-2018", 5)
 andre.add_recipe_card(muffin, "07-12-2018", 2)
 andre.add_recipe_card(sandwich, "07-15-2018", 3)
-dan.add_recipe_card(muffin, "07-19-2018", 1)
+dan.add_recipe_card(sandwich, "07-19-2018", 1)
 dan.add_recipe_card(sandwich, "07-24-2018", 4)
+dan.add_recipe_card(sandwich, "07-25-2018", 1)
 
 binding.pry

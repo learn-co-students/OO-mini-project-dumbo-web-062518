@@ -4,8 +4,8 @@ class RecipeIngredient
 
   def initialize
     @@all << self
-    @recipe = recipe
-    @ingredient = ingredient
+    #@recipe = recipe
+    #@ingredient = ingredient
   end
 
   def self.all

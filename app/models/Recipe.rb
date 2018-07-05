@@ -12,7 +12,12 @@ class Recipe
   end
 
   def self.most_popular
-
+    recipe_hash = Hash.new(0)
+    RecipeCard.all.each do |recipe|
+      recipe_hash[recipe.recipe]+=1
+    end
+    recipe_hash_sorted = recipe_hash.sort_by { |recipe, count| count }
+    recipe_hash_sorted[-1]
   end
 
   def users
