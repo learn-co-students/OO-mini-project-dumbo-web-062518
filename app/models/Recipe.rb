@@ -32,7 +32,17 @@ class Recipe
   end
 
   def allergens
+    ingredients_array = self.ingredients
+    allergen_array = Array.new
 
+    Allergen.all.each do |allergen|
+      ingredients_array.each do |ingredient|
+        if allergen.ingredient == ingredient.ingredient.name
+          allergen_array << ingredient
+        end
+      end
+    end
+    allergen_array
   end
 
   def add_ingredients(ingredient_array)

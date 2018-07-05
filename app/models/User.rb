@@ -26,7 +26,7 @@ class User
     new_allergen.user = self
   end
 
-  def allergens(ingredient)
+  def allergens
     Allergen.all.select { |allergen| allergen.user == self }
   end
 
@@ -41,5 +41,27 @@ class User
     recent = cards.sort { |x, y| y.date <=> x.date }
     recent.take(1)
     binding.pry
+  end
+
+  def safe_recipes
+    safe_array = Array.new
+    is_safe = 1
+
+    Recipe.all.each do |recipe|
+      recipe.ingredients.each do |ingredient|
+        self.allergens.each do |allergen|
+          if allergen.ingredient == ingredient.ingredient.name
+            is_safe = 0
+          end
+        end
+      end
+
+      if is_safe == 1
+        safe_array << recipe
+      end
+
+      is_safe = 1
+    end
+    safe_array
   end
 end

@@ -23,4 +23,12 @@ dan.add_recipe_card(sandwich, "07-19-2018", 1)
 dan.add_recipe_card(sandwich, "07-24-2018", 4)
 dan.add_recipe_card(sandwich, "07-25-2018", 1)
 
+dan.declare_allergen("dough")
+andre.declare_allergen("nuts")
+# andre.declare_allergen("glue")
+# andre.declare_allergen("paper")
+# dan.declare_allergen("dough")
+# dan.declare_allergen("nuts")
+# dan.declare_allergen("dough")
+
 binding.pry
