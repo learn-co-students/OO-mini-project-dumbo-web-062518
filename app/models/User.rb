@@ -48,6 +48,22 @@ class User
 		# return recipe most recently added to user's cookbook
 		self.recipes.last
 	end
+
+	def safe_recipes
+		my_unsafe_recipes = []
+
+		users_allergens = Allergen.all.select{|allergen| allergen.user == self}
+		allergic_ingredients = users_allergens.map{|allergen| allergen.ingredient}
+		allergic_ingredients.each do |ingredient|
+			Recipe.all.each do |recipe|
+				if recipe.ingredients.include?(ingredient)
+					my_unsafe_recipes << recipe
+				end
+			end
+		end
+		my_unsafe_recipes = my_unsafe_recipes.uniq
+		Recipe.all.reject{|recipe| my_unsafe_recipes.include?(recipe) }
+	end
 end
 
 # User#safe_recipes should return all recipes that do not contain ingredients the user is allergic to
